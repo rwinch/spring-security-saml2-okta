@@ -1,0 +1,73 @@
+A simple example of using okta for authentication with http://projects.spring.io/spring-security-saml/[Spring Security SAML] and http://projects.spring.io/spring-boot/[Spring Boot].
+
+= Setup
+
+== JDK 8 Installed
+
+The application requires you have http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[JDK8+ installed] on your computer.
+
+== Okta Setup
+
+https://www.okta.com/developer/signup/[Create an Okta developer account] if you do not already have one.
+You will receive an email to instructions for setting up your test identity provider.
+
+Follow the directions under the http://developer.okta.com/docs/guides/spring_security_saml.html#configuring-okta-to-work-with-spring-security-saml[Configuring Okta to work with Spring Security SAML].
+The difference is that you will use the following values:
+
+* **Single sign on URL** http://localhost:8080/spring-security-saml2-sample/saml/SSO
+* **Audience URI (SP EntityID)** http://localhost:8080/spring-security-saml2-sample/saml/metadata
+
+== Spring Security SAML Configuration
+
+* Open link:https://github.com/rwinch/spring-security-saml2-okta/blob/master/src/main/resources/application.properties[src/main/resources/application.properties]
+* Enter the *Identity Provider metadata*  from <<Okta Setup>> as the value for `security.saml.idp.metadata`.
+For example, if the *Identity Provider metadata* was `https://example.okta.com/app/abc0defghijK1lmN23o4/sso/saml/metadata`, your file should look like:
+
+.src/main/resources/application.properites
+----
+# TBD Enter the Identity Provider metadata link from Okta
+security.saml.idp.metadata=https://example.okta.com/app/abc0defghijK1lmN23o4/sso/saml/metadata
+----
+
+== Running the Sample
+
+You can now run the sample using:
+
+.Run on OSX or *nix
+[source,bash]
+----
+$ ./mvnw spring-boot:run
+----
+
+.Run on Windows
+[source,bash]
+----
+$ .\mvnw.cmd spring-boot:run
+----
+
+Once the application starts:
+
+* Visit http://localhost:8080/
+
+=== Authenticating with a local account
+
+You can authenticate with a local account using:
+
+* **Username** user
+* **Password** password
+* Press **Log in**
+
+You should now see the user name displayed.
+
+=== Logging Out
+
+You can log out using the **Log Out** button
+
+=== Authenticating with Okta
+
+You can perform Single Sign On with Okta:
+
+* Select Okta radio button
+* Press **Start single sign-on** button
+
+You should now see the user name displayed

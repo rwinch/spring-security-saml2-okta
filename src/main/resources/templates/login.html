@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Please Log In</title>
+</head>
+<body>
+
+	<div>
+		<form name="f" th:action="@{/login}" method="post">
+			<fieldset>
+				<legend>Please Login (user/password)</legend>
+				<div th:if="${param.error}" class="alert alert-error">Invalid
+					username and password.</div>
+				<div th:if="${param.logout}" class="alert alert-success">You
+					have been logged out.</div>
+				<p>
+				<label for="username">Username</label>
+				<input type="text"
+					id="username" name="username" />
+				</p>
+				<p>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" />
+				</p>
+				<div class="form-actions">
+					<button type="submit" class="btn">Log in</button>
+				</div>
+			</fieldset>
+		</form>
+		<form th:action="${idpDiscoReturnURL}" method="get">
+			<fieldset>
+				<legend>Single Sign On</legend>
+				<p th:each="idp : ${idps}">
+					<input type="radio" th:name="${idpDiscoReturnParam}" th:id="'idp_' + ${idp}"
+						th:value="${idp}" /> Okta
+				</p>
+			<input class="btn btn-default" type="submit"
+				value="Start single sign-on" />
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>

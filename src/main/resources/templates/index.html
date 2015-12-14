@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attributes</title>
+</head>
+<body>
+	<p>Autheniticated as <span th:text="${username}">Some User</span></p>
+	<form th:action="@{/saml/logout}" method="post">
+		<input type="hidden" name="local" value="true"/>
+		<input type="submit" value="Log Out"/>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
