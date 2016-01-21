@@ -14,8 +14,8 @@ You will receive an email to instructions for setting up your test identity prov
 Follow the directions under the http://developer.okta.com/docs/guides/spring_security_saml.html#configuring-okta-to-work-with-spring-security-saml[Configuring Okta to work with Spring Security SAML].
 The difference is that you will use the following values:
 
-* **Single sign on URL** http://localhost:8080/spring-security-saml2-sample/saml/SSO
-* **Audience URI (SP EntityID)** http://localhost:8080/spring-security-saml2-sample/saml/metadata
+* **Single sign on URL** http://localhost:8080/saml/SSO
+* **Audience URI (SP EntityID)** http://localhost:8080/saml/metadata
 
 == Spring Security SAML Configuration
 
