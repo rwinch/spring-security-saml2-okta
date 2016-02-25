@@ -7,7 +7,7 @@
 <body>
 	<p>Autheniticated as <span th:text="${username}">Some User</span></p>
 	<form th:action="@{/saml/logout}" method="post">
-		<input type="hidden" name="local" value="true"/>
+		<input type="hidden" name="local" value="false"/>
 		<input type="submit" value="Log Out"/>
 	</form>
 </body>

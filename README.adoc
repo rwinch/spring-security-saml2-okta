@@ -2,9 +2,9 @@ A simple example of using okta for authentication with http://projects.spring.io
 
 = Setup
 
-== JDK 8 Installed
+== JDK 7+ Installed
 
-The application requires you have http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[JDK8+ installed] on your computer.
+The application requires you have http://openjdk.java.net/install/[JDK7+ installed] on your computer.
 
 == Okta Setup
 
@@ -16,6 +16,10 @@ The difference is that you will use the following values:
 
 * **Single sign on URL** http://localhost:8080/saml/SSO
 * **Audience URI (SP EntityID)** http://localhost:8080/saml/metadata
+* **Enable Single Logout**
+** **Single Logout URL** http://localhost:8080/saml/SingleLogout
+** **SP Issuer** http://localhost:8080/saml/metadata
+** Signature Certificate - Upload /security/SingleLogout.crt
 
 == Spring Security SAML Configuration
 
