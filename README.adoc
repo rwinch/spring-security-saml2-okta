@@ -19,7 +19,7 @@ The difference is that you will use the following values:
 * **Enable Single Logout**
 ** **Single Logout URL** http://localhost:8080/saml/SingleLogout
 ** **SP Issuer** http://localhost:8080/saml/metadata
-** Signature Certificate - Upload /security/SingleLogout.crt
+** **Signature Certificate** - Upload /security/SingleLogout.crt
 
 == Spring Security SAML Configuration
 
