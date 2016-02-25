@@ -65,7 +65,7 @@ You should now see the user name displayed.
 
 === Logging Out
 
-You can log out using the **Log Out** button
+You can log out using the **Log Out** button. This will trigger Single Logout process
 
 === Authenticating with Okta
 
